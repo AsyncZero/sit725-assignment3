@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #C4C4C4;
+}
+
+head {
+    position: relative;
+    width: 1291.16px;
+    height: 1000px;
+    overflow-x: scroll;
+    mix-blend-mode: normal;
+}
+
+#HomePage {
+    position: center;
+    width: 1291.16px;
+    height: 286.37px;
+    left: 0px;
+    top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url(IMAGES/headerImage.png), #C4C4C4;
+}
+
+#bodyGame {
+    position: center;
+    width: 1291.16px;
+    height: 713.63px;
+    left: 0px;
+    top: 286.37px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(180deg, #7691F1 0%, rgba(255, 255, 255, 0) 100%), #8C6116;
+}
+
+.GameIntro {
+    position: center;
+    width: 937px;
+    height: 570px;
+    left: calc(50% - 500px/2 - 0.08px);
+    top: 286.37px;
+    margin-top: 80px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: #E7E6E6;
+    border: 1px solid #000000;
+    border-radius: 100px;
+}
+
+.LoveLetter {
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 822px;
+    height: 433px;
+    left: 239px;
+    bottom: 137px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.04em;
+    text-decoration-line: underline;
+    color: #000000;
+}
+
+.text {
+    margin-top: -350px;
+    margin-bottom: auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #000000;
+}
+
+#buttonNext {
+    margin-left: 650px;
+    width: 174px;
+    height: 72px;
+    left: 1180px;
+    top: 850px;
+    background: #8C6116;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+
+#buttonText {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0.04em;
+    color: #FFFEFE;
+    text-decoration: none
+}
