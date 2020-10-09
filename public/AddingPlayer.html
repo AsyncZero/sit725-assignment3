@@ -2,26 +2,94 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AddingPlayer</title>
+    <title>Adding Player</title>
     <link rel="icon" href="./IMAGES/cardBack.png">
     <link href="styles.css" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style2.css">
-    <!-- popup messages - alert -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="style2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <script>
+        function AddName(){
+            var player_no=localStorage.getItem("no_of_players");
+            
+            if(player_no =="2"){
+                
+               
+                var name1=document.getElementById("Player1").value;
+                var name2=document.getElementById("Player2").value;
+                
+                
+                
+                localStorage.setItem("player1",name1);
+                localStorage.setItem("player2",name2);
+                
+                
+            }
+            if(player_no =="3"){
+                
+                var name1=document.getElementById("Player1").value;
+                var name2=document.getElementById("Player2").value;
+                var name3=document.getElementById("Player3").value;
+                
+                 localStorage.setItem("player1",name1);
+                localStorage.setItem("player2",name2);
+                localStorage.setItem("player3",name3);
+                
+                
+                
+            }
+            if(player_no =="4"){
+               
+                
+                var name1=document.getElementById("Player1").value;
+                var name2=document.getElementById("Player2").value;
+                var name3=document.getElementById("Player3").value;
+                var name4=document.getElementById("Player4").value;
+                
+                localStorage.setItem("player1",name1);
+                localStorage.setItem("player2",name2);
+                localStorage.setItem("player3",name3);
+                localStorage.setItem("player4",name4);
+            }
+            
+        
+            console.log("p1",name1)
+            console.log("p2",name2)
+            console.log("p3",name3)
+            console.log("p4",name4)
+        }
+    </script>
 </head>
 
 <body>
-    <script src="env.js"></script>
     <div id="HomePage">
     </div>
     <div id="bodyGame">
         <div class="GameIntro">
-            <h2 class="players">Players</h2>
-            <input placeholder="Enter Name...." id="PlayerName" type="text" class="validate">
-            <button id="Player"><a id="buttonText" href="./AddingPlayer.html" onclick="AddName()">Join as Player</a></button>
-            <button id="Spectator"><a id="buttonText" href="./AddingPlayer.html" onclick="AddName()">Join as Spectator</a></button>
+            <center><h2 class="LoveLetter">Players</h2></center>
+            <div class="text">
+                
+               <input id="Player1" style="margin: 15px;" class="form-control" type="text" placeholder="Player 1 Name" value="John">
+                <input id="Player2" style="margin: 15px;" class="form-control" type="text" placeholder="Player 2 Name" value="Shawn">
+                <input id="Player3" style="margin: 15px;" class="form-control" type="text" placeholder="Player 3 Name" value="Ponting">
+                <input id="Player4" style="margin: 15px;" class="form-control" type="text" placeholder="Player 4 Name" value="Smith">
+                  <center><a onclick="AddName();" href="playerList.html" type="submit" class="btn btn-success" style="text-align: center !important; margin-top: 20px;"><p style="margin-bottom: 0; padding: 0px 40px 0px 40px;">SUBMIT</p></a></center>
+            </div>
+            
+            <script>
+                    var player_no = localStorage.getItem("no_of_players");
+                    if(player_no=="2"){
+                        document.getElementById("Player3").disabled = true;
+                        document.getElementById("Player4").disabled = true;
+                    }
+                    if(player_no=="3"){
+                        document.getElementById("Player4").disabled = true;
+                    }
+                    
+                    
+                    
+                    
+                </script>
         </div>
     </div>
 </body>
