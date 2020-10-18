@@ -1,0 +1,117 @@
+body {
+    background-color: #f9e2ab;
+}
+.banner-img{
+  width: 100%;
+}
+.msg{
+  margin: 10px 50px;
+}
+.nxt-btn-container{
+  float: right;
+}
+.nxt-btn{
+  background-color: #b48484;
+}
+.lobby-form{
+  display: flex;
+  margin:0px !important;
+}
+.user-input{
+    display: flex !important;
+    margin-left: 10px !important;
+    }
+button, input, optgroup, select, textarea {
+    margin-left: 20px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.user-input label{
+    display: flex;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.user-input button{
+    display: block;
+    border-radius: 3px;
+    margin-top: 1px;
+    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+}
+
+
+
+.player-card2 {
+    text-align: right;
+    clear: both;
+    text-align: center;
+}
+.player-card {
+    background: red;
+    width: 250px;
+    min-height: 58px;
+    float: right;
+    border-bottom: 1px solid #221;
+}
+.player-card.bottom-my-card {
+    bottom: 0px !important;
+    position: absolute;
+    right: 0px;
+}
+
+#deck-container{
+    display: flex;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 310px)
+}
+
+#deck-discards{
+    display: flex;
+}
+
+.card{
+    display: inline-block;
+    background: transparent;
+    border: 5px solid white;
+    border-radius: 5px;
+    height: 170px;
+    width: 120px;
+    margin: 0 10px 0 10px;
+    background-size: 100% 100%;
+}
+
+.card h1{
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin: 0 0 0 2px !important;
+}
+
+.card-back{
+    background-image: url("../img/card-back.png");
+}
+
+.hand {
+    bottom: 0px !important;
+    position: absolute;
+    left: 50%;
+}
+.your-card-title{
+  bottom: 0px !important;
+  position: absolute;
+  left: auto;
+  color:black;
+
+}
+.game-btn {
+    position: absolute;
+    bottom: 0px;
+    width: 70%;
+    margin-left: 0px;
+}

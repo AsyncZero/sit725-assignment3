@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoveLetter</title>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/abyssinica" type="text/css"/>
+    <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+    <div  id="homemenu" class="semi-transparent">
+      <div class="banner">
+        <img src="img/banner.jpg" class="banner-img">
+      </div>
+      <div class="jumbotron msg lobby-form">
+        <div class="user-input">
+            <input id="username" type="text" placeholder="Enter Username">
+            <input id="newPlayerRoom" type="text" placeholder="Room name">
+            <button id="newroom" type="button" class="btn nxt-btn">Create</button>
+            <input id="joinRoom" type="text" maxlength="12" placeholder="Room name">
+            <button id="joinbtn" type="button" class="btn nxt-btn">Join</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
