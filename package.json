@@ -18,6 +18,8 @@
   "homepage": "https://github.com/AsyncZero/sit725-assignment3#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "js-image-zoom": "^0.7.0",
+    "materialize-css": "^1.0.0-rc.2",
     "mongodb": "^3.6.2"
   }
 }
