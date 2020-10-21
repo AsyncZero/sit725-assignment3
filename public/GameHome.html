@@ -1,59 +1,65 @@
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>GameHome</title>
-    <link rel="icon" href="./IMAGES/cardBack.png">
-    <link href="styles.css" rel="stylesheet">
-<!--    <link href="style2.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
+    <link rel="icon" href="./IMAGES/cardBack.png" />
+    <link href="styles.css" rel="stylesheet" />
+    <!--    <link href="style2.css" rel="stylesheet">-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
-    <div id="HomePage">
-    </div>
+  <body>
+    <div id="HomePage"></div>
     <div id="bodyGame">
-        <div class="row">
+      <div class="row">
         <div class="col-md-4">
-        <div class="form-group">
-  <textarea style="margin-left: 20px; height: 300px; width: 100%;" class="form-control" rows="5" id="comment"></textarea>
-</div>     </div> 
-            <div class="col-md-8">
-            
-            <h1 id="#countdown"></h1>
-            </div>
+          <div class="form-group">
+            <textarea
+              style="margin-left: 20px; height: 300px; width: 100%"
+              class="form-control"
+              rows="5"
+              id="comment"
+            ></textarea>
+          </div>
         </div>
-        <script>
-        
+        <div class="col-md-8">
+          <h1 id="#countdown"></h1>
+        </div>
+      </div>
+      <script>
+        const startingMinutes = 2;
+        let time = startingMinutes * 60;
 
+        const countdownEl = document.getElementById("#countdown");
+        //    document.getElementById("myBtn").disabled = true;
 
-    const startingMinutes = 2;
-    let time = startingMinutes * 60;
+        setInterval(updateCountdown, 1000);
 
-    const countdownEl = document.getElementById('#countdown');
-//    document.getElementById("myBtn").disabled = true;
+        function updateCountdown() {
+          const minutes = Math.floor(time / 60);
+          let seconds = time % 60;
 
-    setInterval(updateCountdown, 1000);
+          seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    function updateCountdown() {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
+          countdownEl.innerHTML = `${minutes}:${seconds}`;
+          time--;
+          time = time < 0 ? 0 : time;
+          localStorage.setItem("time", time);
+          console.log(time);
 
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+          if (time == 0) {
+            document.getElementById("#countdown").innerHTML = "";
+            document.getElementById("myBtn").disabled = false;
+          }
+        }
+      </script>
 
-      countdownEl.innerHTML = `${minutes}:${seconds}`;
-      time--;
-      time = time < 0 ? 0 : time;
-      localStorage.setItem('time',time)
-      console.log(time)
-
-      if(time == 0){
-        document.getElementById("#countdown").innerHTML = "";
-        document.getElementById("myBtn").disabled = false;
-      }
-    }</script>
-  
-<!--
+      <!--
         <div class="GameIntro">
             <h2 class="LoveLetter">Love Letter</h2>
             <p class="text">
@@ -64,6 +70,5 @@
         </div>
 -->
     </div>
-</body>
-
+  </body>
 </html>

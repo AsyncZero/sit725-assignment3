@@ -1,18 +1,18 @@
 let userID, tokenCount, playerCount;
-let scoreBoard=[];
+let scoreBoard = [];
 
-function giveToken(winnerID){
-    for (var x = 0; x < playerCount; x++){
-        if (scoreBoard[x].userID==winnerID){
-            scoreBoard[x].tokenCount += 1;
-        }
+function giveToken(winnerID) {
+  for (var x = 0; x < playerCount; x++) {
+    if (scoreBoard[x].userID == winnerID) {
+      scoreBoard[x].tokenCount += 1;
     }
+  }
 }
 
-function addPlayer(userID){
-    let player = {
-        userID: userID,
-        tokenCount: 0
-    }
-    scoreBoard.push(player);
+function addPlayer(userID) {
+  let player = {
+    userID: userID,
+    tokenCount: 0,
+  };
+  scoreBoard.push(player);
 }
