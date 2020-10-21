@@ -5,65 +5,72 @@
     <title>GameHome</title>
     <link rel="icon" href="./IMAGES/cardBack.png">
     <link href="styles.css" rel="stylesheet">
-<!--    <link href="style2.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- popup messages - alert -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
+    <script src="env.js"></script>
     <div id="HomePage">
     </div>
-    <div id="bodyGame">
-        <div class="row">
-        <div class="col-md-4">
-        <div class="form-group">
-  <textarea style="margin-left: 20px; height: 300px; width: 100%;" class="form-control" rows="5" id="comment"></textarea>
-</div>     </div> 
-            <div class="col-md-8">
-            
-            <h1 id="#countdown"></h1>
+    <div class="GameHome">
+        <p id=countingdown>You must play a card:<span id="time"></span></p>
+        <div class="Box1">
+            <div id="box1">
+                <p id="firstPlayer"> </p>
             </div>
         </div>
-        <script>
-        
-
-
-    const startingMinutes = 2;
-    let time = startingMinutes * 60;
-
-    const countdownEl = document.getElementById('#countdown');
-//    document.getElementById("myBtn").disabled = true;
-
-    setInterval(updateCountdown, 1000);
-
-    function updateCountdown() {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
-
-      seconds = seconds < 10 ? '0' + seconds : seconds;
-
-      countdownEl.innerHTML = `${minutes}:${seconds}`;
-      time--;
-      time = time < 0 ? 0 : time;
-      localStorage.setItem('time',time)
-      console.log(time)
-
-      if(time == 0){
-        document.getElementById("#countdown").innerHTML = "";
-        document.getElementById("myBtn").disabled = false;
-      }
-    }</script>
-  
-<!--
-        <div class="GameIntro">
-            <h2 class="LoveLetter">Love Letter</h2>
-            <p class="text">
-                Love Letter Love Letter is a game of risk, deduction, and luck. The game features simple rules that create dynamic and fun player interactions. Players attempt to deliver their love letter into the Princess’s hands while keeping other players’ letters
-                away. Powerful cards lead to early gains but make you a target. Rely on weaker cards for too long and your letter may be tossed in the fire!
-            </p>
-            <button id="buttonNext"><a style="text-decoration: none; color: white; font-size:35px " id="buttonText" href="Details.html">Next</a></button>
+        <div class="messageBox">
         </div>
--->
-    </div>
+        <div class="Box2">
+            <div id="box2">
+                <p></p>
+
+            </div>
+        </div>
+        <div class="Box3">
+            <div id="box3">
+                <p></p>
+            </div>
+        </div>
+        <div class="Box4">
+            <div id="box4">
+                <p>
+                </p>
+            </div>
+        </div>
+        <button id="rulesBox" class="w3-button w3-green w3-large" data-toggle="modal" data-target="#myModal" style="color: #171716;">Rules</button>
+        <div class="modal" id="myModal" role="dialog">
+            <!-- Modal content-->
+            <div class="modal-content" id="myModal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="rulesText">
+                        <p style="text-decoration: underline; font-size: 20px;">List of Cards:</p>
+                        <p>8-Princess(1): Lose if discarded</p>
+                        <p>7-Countess(1): Discard if caught with Prince or King</p>
+                        <p>6-King(1): Trade hands</p>
+                        <p>5-Prince(2): One player discards their hand</p>
+                        <p>4-Handmaid(2): Protection until your next turn</p>
+                        <p>3-Baron(2): Compare hands; lower hand is out</p>
+                        <p>2-Priest(2): Look at a hand</p>
+                        <p>1-Guard(5): Guess a player’s hand</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

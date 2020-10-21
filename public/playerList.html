@@ -1,93 +1,60 @@
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PlayerList</title>
+    <link rel="icon" href="./IMAGES/cardBack.png" />
+    <link href="styles.css" rel="stylesheet" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- popup messages - alert -->
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Details</title>
-    <link rel="icon" href="./IMAGES/cardBack.png">
-    <link href="styles.css" rel="stylesheet">
-    <link href="style2.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script>
-       function fun1(){
-           
-            var name1=localStorage.setItem("player1","No Player");
-            window.location.reload();
-           
-        }
-        function fun2(){
-            var name1=localStorage.setItem("player2","No Player");
-            window.location.reload();
-            
-        }
-        function fun3(){
-            var name1=localStorage.setItem("player3","No Player");
-            window.location.reload();
-            
-        }
-        function fun4(){
-            var name1=localStorage.setItem("player4","No Player");
-            window.location.reload();
-            
-        }
-        
-    </script>
-</head>
-
-<body>
-    <div id="HomePage">
-    </div>
+  <body>
+    <script src="env.js"></script>
+    <div id="HomePage"></div>
     <div id="bodyGame">
-        <div class="GameIntro">
-            <center><h2 class="LoveLetter">Love Letter</h2></center>
-            <div class="text">
-                <ol>
-                <div class="row">
-                <li id="p1"></li><button type="button" class="btn btn-danger adjust" id="b1" onclick="fun1();">Leave</button>
-                    </div>
-                    <div class="row">
-                <li id="p2"></li><button type="button" class="btn btn-danger adjust" id="b2" onclick="fun2();">Leave</button>
-                        </div>
-                    <div class="row">
-                <li id="p3"></li><button type="button" class="btn btn-danger adjust" id="b3" onclick="fun3();">Leave</button>
-                        </div>
-                    <div class="row">
-                <li id="p4"></li><button type="button" class="btn btn-danger adjust" id="b4" onclick="fun4();">Leave</button>
-                        </div>
-                </ol>
-                <script>
-                    var player_no = localStorage.getItem("no_of_players");
-                    if(player_no=="2"){
-                        document.getElementById("p1").innerHTML=localStorage.getItem("player1");
-                        document.getElementById("p2").innerHTML=localStorage.getItem("player2");
-                        document.getElementById("p3").innerHTML = "No Player";
-                        document.getElementById("p4").innerHTML = "No Player";
-                        document.getElementById("b3").disabled = true;
-                        document.getElementById("b4").disabled = true;
-                        
-                    }
-                    if(player_no=="3"){
-                        document.getElementById("p1").innerHTML=localStorage.getItem("player1");
-                        document.getElementById("p2").innerHTML=localStorage.getItem("player2");
-                        document.getElementById("p3").innerHTML=localStorage.getItem("player3");
-                        document.getElementById("p4").innerHTML = "No Player";
-                        
-                        document.getElementById("b4").disabled = true;
-                        
-                    }
-                    if(player_no=="4"){
-                        document.getElementById("p1").innerHTML=localStorage.getItem("player1");
-                        document.getElementById("p2").innerHTML=localStorage.getItem("player2");
-                        document.getElementById("p3").innerHTML=localStorage.getItem("player3");
-                        document.getElementById("p4").innerHTML=localStorage.getItem("player4");
-                    }
-                    
-                    
-                    
-                </script>
-                  <center><a href="GameHome.html" type="submit" class="btn btn-success" style="text-align: center !important; margin-top: 20px;"><p style="margin-bottom: 0; padding: 0px 40px 0px 40px;">PLAY</p></a></center>
-            </div>
-        </div>
+      <div class="GameIntro">
+        <h2 class="players">Players</h2>
+        <table id="playerList" class="striped">
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>
+                <span
+                  id="loginUser"
+                  class="brand-logo"
+                  style="height: 100%"
+                ></span>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
-
+    <button id="play" onclick="Play()">Play</button>
+  </body>
 </html>
