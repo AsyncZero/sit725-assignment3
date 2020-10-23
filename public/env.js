@@ -35,18 +35,29 @@ const AddName = () => {
 
 
 }
-console.log('name is : ' + localStorage.content);
 
 $(document).ready(function() {
 
     var url = window.location.href.replace('playerList.html', 'player?players=' + localStorage.content);
 
     $.get(url, function(req, res) {
-        console.log('player added');
+
         $('#loginUser').html(localStorage.content);
-        $('#loginUser2').html(localStorage.content);
-        $('#loginUser3').html(localStorage.content);
-        $('#loginUser4').html(localStorage.content);
+        // $('#loginUser2').html(localStorage.content);
+        // $('#loginUser3').html(localStorage.content);
+        // $('#loginUser4').html(localStorage.content);
+        if ($('#loginUser').text() == "") {
+            $('#leave1').hide();
+        }
+        if ($('#loginUser2').text() == "") {
+            $('#leave2').hide();
+        }
+        if ($('#loginUser3').text() == "") {
+            $('#leave3').hide();
+        }
+        if ($('#loginUser4').text() == "") {
+            $('#leave4').hide();
+        }
     })
 });
 
@@ -106,7 +117,6 @@ $(document).ready(function() {
     $('.Box4').show();
 });
 const leave = () => {
-
     localStorage.clear();
     window.location.href = "./HomePage.html";
 }
