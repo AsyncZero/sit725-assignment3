@@ -3,11 +3,9 @@ let username;
 let spectators = [];
 let room = "spectators";
 
-<<<<<<< HEAD
 function addSpectator(userID) {
   spectators.push(userID);
 }
-=======
 //add to spectator list
 function addSpectator(userID, username) {
     let data = {
@@ -19,6 +17,9 @@ function addSpectator(userID, username) {
 }
 
 //remove player buttons
+function hideplayerbuttons(htmlElement){
+    document.getElementById(htmlElement).style.display = "none";
+}
 
 //hide spectator chats from players
 
@@ -43,4 +44,3 @@ function sendMSG(message, userID) {
 //spectator left log
 
 //let spectator know if game has updated
->>>>>>> added send message function for spectator
