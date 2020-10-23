@@ -6,15 +6,17 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 // Insert Message into database
 let documentsCollection;
-
 const openConnectionPlayers = () => {
   client.connect((err) => {
     documentsCollection = client.db("loveletter").collection("players");
+
     if (!err) {
       console.log("Database Connected");
-    }
+
+        }
   });
 };
+
 
 module.exports = {
   openConnectionPlayers,

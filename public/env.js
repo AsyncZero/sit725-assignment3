@@ -2,7 +2,9 @@ let userID = null;
 //addingName method 
 const AddName = () => {
     let Name = $('#PlayerName').val()
-        //entering name validation present or not
+        //gettting the values
+    var name = document.getElementById("PlayerName").value;
+    //entering name validation present or not
     if (Name.length == '') {
         alert("Please add your name!");
         if (confirm('Please add your name!') == true) {
@@ -20,22 +22,30 @@ const AddName = () => {
     } else {
 
         userID = Name
-        window.location.href = "./playerList.html";
+        window.location.href = "./playerList.html?Name=" + Name;
 
-        // document.getElementById('loginUser').html('hi sam!')
     }
+}
 
+window.onload = function() {
+    var url = window.location.href.split('=');
+    var name = url[1];
+    var names = url[1];
+    $('#loginUser').html(name);
+    $('#firstPlayer').html(name);
 }
 
 
 
 const Play = () => {
 
-    let firstName = $('#firstName').text();
+    let firstName = $('#loginUser').text();
     if (firstName != "") {
         window.location.href = "./GameHome.html";
+        // $('#firstPlayer').html('name');
 
     } else {
         window.location.href = "./AddingPlayer.html";
     }
+
 }
