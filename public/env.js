@@ -1,8 +1,10 @@
-let userID = null;
+let userID;
+
 //addingName method 
 const AddName = () => {
     let Name = $('#PlayerName').val()
-        //gettting the values
+    localStorage.content = $('#PlayerName').val();
+    //gettting the values
     var name = document.getElementById("PlayerName").value;
     //entering name validation present or not
     if (Name.length == '') {
@@ -21,31 +23,90 @@ const AddName = () => {
         Name.focus();
     } else {
 
-        userID = Name
-        window.location.href = "./playerList.html?Name=" + Name;
+        userID = name
+
+
+        // window.location.href = "./playerList.html?Name=" + Name;
+        window.location.href = "./playerList.html";
+
+
 
     }
+
+
 }
+console.log('name is : ' + localStorage.content);
 
-window.onload = function() {
-    var url = window.location.href.split('=');
-    var name = url[1];
-    var names = url[1];
-    $('#loginUser').html(name);
-    $('#firstPlayer').html(name);
-}
+$(document).ready(function() {
+
+    var url = window.location.href.replace('playerList.html', 'player?players=' + localStorage.content);
+
+    $.get(url, function(req, res) {
+        console.log('player added');
+        $('#loginUser').html(localStorage.content);
+        $('#loginUser2').html(localStorage.content);
+        $('#loginUser3').html(localStorage.content);
+        $('#loginUser4').html(localStorage.content);
+    })
+});
 
 
+
+
+
+
+
+
+// window.onload = function() {
+//     var url = window.location.href.split('=');
+//     var name = url[1];
+//     var names = url[1];
+//     $('#loginUser').html(name);
+//     $('#firstPlayer').html(name);
+// }
+
+let NameList = null;
 
 const Play = () => {
-
-    let firstName = $('#loginUser').text();
+    firstName = $('#loginUser').text();
     if (firstName != "") {
+        //     if ($('#loginUser').text() != "" && $('#loginUser2').text() != "") {
         window.location.href = "./GameHome.html";
-        // $('#firstPlayer').html('name');
+        //         $(document).ready(function() {
+        //             document.getElementsByClassName('Box1').style.display = 'none';
+        //             // $('.Box1').hide();
+        //             $('.Box2').hide();
+        //             $('.Box3').hide();
+        //             $('.Box4').hide();
+        //         });
+        //     } else if ($('#loginUser1').text() != "" && $('#loginUser2').text() != "" && $('#loginUser3').text() != "") {
+        //         window.location.href = "./GameHome.html";
+        //         $('.Box1').hide();
+        //         $('.Box2').hide();
+        //         $('.Box3').hide();
+        //         $('.Box4').hide();
+        //     } else if ($('#loginUser1').text() != "" && $('#loginUser2').text() != "" && $('#loginUser3').text() != "" && $('#loginUser4').text() != "") {
+        //         window.location.href = "./GameHome.html";
+        //         $('.Box1').hide();
+        //         $('.Box2').hide();
+        //         $('.Box3').hide();
+        //         $('.Box4').hide();
+        //     }
 
     } else {
         window.location.href = "./AddingPlayer.html";
     }
 
+}
+$(document).ready(function() {
+    // console.log('All assets are loaded')
+    $('.Box1').show();
+    $('.Box2').show();
+    $('.Box3').show();
+    $('.Box4').show();
+});
+const leave = () => {
+
+    localStorage.clear();
+    window.location.href = "./HomePage.html";
 }
