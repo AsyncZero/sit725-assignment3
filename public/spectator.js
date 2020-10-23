@@ -14,6 +14,9 @@ function addSpectator(userID, username) {
 }
 
 //remove player buttons
+function hideplayerbuttons(htmlElement){
+    document.getElementById(htmlElement).style.display = "none";
+}
 
 //hide spectator chats from players
 
