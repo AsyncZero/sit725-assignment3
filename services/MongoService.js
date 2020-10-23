@@ -22,7 +22,10 @@ const openConnectionPlayers = () => {
     });
 };
 const insertPlayer = (players) => {
-    documentsCollection.insertOne({ players: players });
+    documentsCollection.insertOne({
+        players: players,
+        "timestamp": new Date()
+    });
 }
 const retrieveMessages = (res) => {
     documentsCollection.find().toArray(function(err, result) {
