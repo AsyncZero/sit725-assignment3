@@ -22,7 +22,6 @@ function hideplayerbuttons(htmlElement){
 }
 
 //hide spectator chats from players
-
 function sendMSG(message, userID) {
     let spectator;
     spectators.forEach(function(s) {
