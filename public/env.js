@@ -47,16 +47,16 @@ $(document).ready(function() {
         // $('#loginUser3').html(localStorage.content);
         // $('#loginUser4').html(localStorage.content);
         if ($('#loginUser').text() == "") {
-            $('#leave1').hide();
+            $('#firstBlock').hide();
         }
         if ($('#loginUser2').text() == "") {
-            $('#leave2').hide();
+            $('#secondBlock').hide();
         }
         if ($('#loginUser3').text() == "") {
-            $('#leave3').hide();
+            $('#thirdBlock').hide();
         }
         if ($('#loginUser4').text() == "") {
-            $('#leave4').hide();
+            $('#fourthBlock').hide();
         }
     })
 });
@@ -111,6 +111,7 @@ const Play = () => {
 }
 $(document).ready(function() {
     // console.log('All assets are loaded')
+    $('#firstPlayer').html(localStorage.content);
     $('.Box1').show();
     $('.Box2').show();
     $('.Box3').show();
