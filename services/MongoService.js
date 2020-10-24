@@ -5,7 +5,7 @@ const uri =
     "mongodb+srv://dbuser:dbuserpassword@cluster0.o0rbr.mongodb.net/loveletter?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 
@@ -27,7 +27,7 @@ const insertPlayer = (players) => {
         "timestamp": new Date()
     });
 }
-const retrieveMessages = (res) => {
+const retrievePlayer = (res) => {
     documentsCollection.find().toArray(function(err, result) {
         if (err) throw err;
         res.send(result)
@@ -36,6 +36,5 @@ const retrieveMessages = (res) => {
 module.exports = {
     openConnectionPlayers,
     insertPlayer,
-    retrieveMessages,
-
+    retrievePlayer,
 };

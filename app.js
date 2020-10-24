@@ -27,9 +27,10 @@ app.get("/player", function(req, res) {
 })
 
 app.get('/playerLists', function(req, res) {
-        mongo.retrieveMessages(res)
-    })
-    //Server Run
+    mongo.retrievePlayer(res)
+})
+
+//Server Run
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log("Server listening on http://localhost:" + PORT + "/game");
