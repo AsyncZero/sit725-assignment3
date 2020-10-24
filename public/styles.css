@@ -354,11 +354,14 @@
         letter-spacing: 0.04em;
         color: #000000;
     }
+Aamir-Preeti
 
+ master
     .messageBox:hover {
         opacity: 0.6;
         filter: alpha(opacity=30);
         transform: scale(1.3);
+ Aamir-Preeti
     }
 
 
@@ -413,3 +416,6 @@ p#firstPlayer {
     position: absolute;
     top: -18px;
 }
+
+    }
+ master
