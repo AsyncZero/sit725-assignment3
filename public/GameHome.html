@@ -36,26 +36,26 @@
 
                 <p id="firstPlayer"> You:</p>
                 <div id="you" class="player-container player-card2">
-                  <div class="hand"></div>
+                    <div class="hand"></div>
                 </div>
 
                 <p id="firstPlayer"> </p>
 
 
                 <p id="firstPlayer"></p>
- 
+
             </div>
         </div>
         <div class="messageBox">
         </div>
         <div class="Box2">
-          <div class="enemy">
-            <div id="box2">
- 
-                <p id="firstPlayer">Demo Enemy:</p>
-                <div id="you" class="player-container player-card2">
-                  <div class="hand"></div>
-                </div>
+            <div class="enemy">
+                <div id="box2">
+
+                    <p id="firstPlayer">Demo Enemy:</p>
+                    <div id="you" class="player-container player-card2">
+                        <div class="hand"></div>
+                    </div>
                 </div>
 
                 <p></p>
@@ -72,14 +72,14 @@
             <div id="box4">
                 <p>
                 </p>
- 
+
             </div>
         </div>
         <div class="carddeck">
             <div id="deck-container">
-              <div id="deck" class="card card-back">
-            </div>
- 
+                <div id="deck" class="card card-back">
+                </div>
+
             </div>
         </div>
         <button id="rulesBox" class="w3-button w3-green w3-large" data-toggle="modal" data-target="#myModal" style="color: #171716;">Rules</button>
@@ -105,33 +105,31 @@
 </body>
 <script src="aman.js"></script>
 <script>
-        
-
-
     const startingMinutes = 2;
     let time = startingMinutes * 60;
 
     const countdownEl = document.getElementById('#countdown');
-//    document.getElementById("myBtn").disabled = true;
+    //    document.getElementById("myBtn").disabled = true;
 
     setInterval(updateCountdown, 1000);
 
     function updateCountdown() {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
 
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
 
-      countdownEl.innerHTML = `${minutes}:${seconds}`;
-      time--;
-      time = time < 0 ? 0 : time;
-      localStorage.setItem('time',time)
-      console.log(time)
+        countdownEl.innerHTML = `${minutes}:${seconds}`;
+        time--;
+        time = time < 0 ? 0 : time;
+        localStorage.setItem('time', time)
+        console.log(time)
 
-      if(time == 0){
-        document.getElementById("#countdown").innerHTML = "";
-        document.getElementById("myBtn").disabled = false;
-      }
-    }</script>
+        if (time == 0) {
+            document.getElementById("#countdown").innerHTML = "";
+            document.getElementById("myBtn").disabled = false;
+        }
+    }
+</script>
 
 </html>
