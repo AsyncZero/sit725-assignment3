@@ -5,7 +5,6 @@ let app = new express();
 
 // Setup DB
 mongo.openConnectionPlayers();
-
 //printing logs
 var log = function(logMessage) {
     var time = moment().format();

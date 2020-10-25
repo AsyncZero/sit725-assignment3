@@ -26,19 +26,40 @@
 <body>
     <script src="env.js"></script>
     <div id="HomePage">
+
     </div>
+
     <div class="GameHome">
         <p id=countingdown>You must play a card:<span id="#countdown"></span></p>
         <div class="Box1">
             <div id="box1">
+
+                <p id="firstPlayer"> You:</p>
+                <div id="you" class="player-container player-card2">
+                  <div class="hand"></div>
+                </div>
+
+                <p id="firstPlayer"> </p>
+
+
                 <p id="firstPlayer"></p>
+ 
             </div>
         </div>
         <div class="messageBox">
         </div>
         <div class="Box2">
+          <div class="enemy">
             <div id="box2">
+ 
+                <p id="firstPlayer">Demo Enemy:</p>
+                <div id="you" class="player-container player-card2">
+                  <div class="hand"></div>
+                </div>
+                </div>
+
                 <p></p>
+
 
             </div>
         </div>
@@ -51,6 +72,14 @@
             <div id="box4">
                 <p>
                 </p>
+ 
+            </div>
+        </div>
+        <div class="carddeck">
+            <div id="deck-container">
+              <div id="deck" class="card card-back">
+            </div>
+ 
             </div>
         </div>
         <button id="rulesBox" class="w3-button w3-green w3-large" data-toggle="modal" data-target="#myModal" style="color: #171716;">Rules</button>
@@ -74,6 +103,7 @@
             </div>
         </div>
 </body>
+<script src="aman.js"></script>
 <script>
         
 

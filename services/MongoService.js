@@ -12,15 +12,26 @@ const client = new MongoClient(uri, {
 
 // Insert Message into database
 let documentsCollection;
-
 const openConnectionPlayers = () => {
+ 
+  client.connect((err) => {
+    documentsCollection = client.db("loveletter").collection("players");
+
+    if (!err) {
+      console.log("Database Connected");
+
+        }
+  });
+};
+
+
+
     client.connect((err) => {
         documentsCollection = client.db("LoveLetter").collection("players");
         if (!err) {
             console.log("Database Connected");
         }
     });
-};
 const insertPlayer = (players) => {
     documentsCollection.insertOne({
         players: players,
@@ -33,6 +44,7 @@ const retrievePlayer = (res) => {
         res.send(result)
     });
 }
+ 
 module.exports = {
     openConnectionPlayers,
     insertPlayer,
