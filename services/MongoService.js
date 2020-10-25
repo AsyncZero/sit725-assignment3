@@ -44,7 +44,7 @@ const retrievePlayer = (res) => {
         res.send(result)
     });
 }
- master
+ 
 module.exports = {
     openConnectionPlayers,
     insertPlayer,
