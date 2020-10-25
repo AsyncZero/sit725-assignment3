@@ -3,6 +3,12 @@ const role = "spectator";
 let spectators = [];
 
 //================AddingPlayer.html================
+$(function () {
+    if (document.URL == "http://localhost:3000/AddingPlayer.html") {
+        //set default role as player
+        localStorage.role = "player";
+    }
+})
 //AddSpectator() for Button
 function AddSpectator() {
     //gettting the values
@@ -52,8 +58,6 @@ $(function() {
             header[0].textContent = "Spectators";
             //change play button text to Watch
             document.getElementById("play").textContent = "Watch";
-            //clear localStorage.role
-            localStorage.role = "";
         }
     }
 })
