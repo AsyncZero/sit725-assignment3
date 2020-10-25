@@ -19,6 +19,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="style2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
@@ -28,8 +30,7 @@
     </div>
 
     <div class="GameHome">
-        <p id=countingdown>You must play a card:<span id="time"></span></p>
-
+        <p id=countingdown>You must play a card:<span id="#countdown"></span></p>
         <div class="Box1">
             <div id="box1">
 
@@ -102,5 +103,35 @@
             </div>
         </div>
 </body>
-  <script src="aman.js"></script>
+<script src="aman.js"></script>
+<script>
+        
+
+
+    const startingMinutes = 2;
+    let time = startingMinutes * 60;
+
+    const countdownEl = document.getElementById('#countdown');
+//    document.getElementById("myBtn").disabled = true;
+
+    setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+      const minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      countdownEl.innerHTML = `${minutes}:${seconds}`;
+      time--;
+      time = time < 0 ? 0 : time;
+      localStorage.setItem('time',time)
+      console.log(time)
+
+      if(time == 0){
+        document.getElementById("#countdown").innerHTML = "";
+        document.getElementById("myBtn").disabled = false;
+      }
+    }</script>
+
 </html>
