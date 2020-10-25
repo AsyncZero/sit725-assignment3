@@ -23,42 +23,42 @@ let cards = {
     1: {
         id: 1,
         name: 'Guard',
-        image: '../IMAGES/Guard.PNG'
+        image: '../IMAGES/Guard.png'
     },
     2: {
         id: 2,
         name: 'Priest',
-        image: '../IMAGES/Priest.PNG'
+        image: '../IMAGES/Priest.png'
     },
     3: {
         id: 3,
         name: 'Baron',
-        image: '../IMAGES/Baron.PNG'
+        image: '../IMAGES/Baron.png'
     },
     4: {
         id: 4,
         name: 'Handmaid',
-        image: '../IMAGES/Handmaid.PNG'
+        image: '../IMAGES/Handmaid.png'
     },
     5: {
         id: 5,
         name: 'Prince',
-        image: '../IMAGES/Prince.PNG'
+        image: '../IMAGES/Prince.png'
     },
     6: {
         id: 6,
         name: 'King',
-        image: '../IMAGES/King.PNG'
+        image: '../IMAGES/King.png'
     },
     7: {
         id: 7,
         name: 'Countess',
-        image: '../IMAGES/Countess.PNG'
+        image: '../IMAGES/Countess.png'
     },
     8: {
         id: 8,
         name: 'Princess',
-        image: '../IMAGES/Princess.PNG'
+        image: '../IMAGES/Princess.png'
     }
 };
 //player hands
