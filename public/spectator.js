@@ -4,6 +4,7 @@ let spectators = [];
 
 //================AddingPlayer.html================
 $(function () {
+    //check if document URL is AddingPlayer.html
     if (document.URL == "http://localhost:3000/AddingPlayer.html") {
         //set default role as player
         localStorage.role = "player";
@@ -64,6 +65,17 @@ $(function() {
 
 
 //================GameHome.html================
+$(function () {
+    //check if document URL is GameHome.html
+    if (document.URL == "http://localhost:3000/GameHome.html" && localStorage.role == "spectator") {
+        //get div cards by className
+        let cards = document.getElementsByClassName("card");
+        //make every div unclickable
+        for (let i = 0; i < cards.length; i++) {
+            $('.card').addClass("unclickable");
+        }
+    }
+})
 //remove player buttons
 function hideplayerbuttons(htmlElement){
     document.getElementById(htmlElement).style.display = "none";

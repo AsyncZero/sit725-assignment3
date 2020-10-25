@@ -433,4 +433,6 @@ p#firstPlayer {
         text-decoration-line: underline;
         color: #2994F7;
     }
- 
+ .unclickable {
+     pointer-events: none;
+ }
