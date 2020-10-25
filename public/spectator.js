@@ -2,7 +2,8 @@ let username;
 const role = "spectator";
 let spectators = [];
 
-//AddSpectator() for Button in AddingPlayer.html
+//================AddingPlayer.html================
+//AddSpectator() for Button
 function AddSpectator() {
     //gettting the values
     username = document.getElementById("PlayerName").value;
@@ -17,14 +18,12 @@ function AddSpectator() {
         alert("Please add a valid name!");
         document.getElementById("PlayerName").focus();
     } else {
-        let data = {
-            username: username,
-            role: role
-        }
+        //pass username to localStorage.content
+        localStorage.content = username;
         //set userdata to localStorage
-        localStorage.spectator = JSON.stringify(data);
+        localStorage.role = role;
         //add user to list of spectators
-        addToSpectatorList(username)
+        addToSpectatorList(username);
         //redirect to playerList.html
         window.location.href = "./playerList.html";
     }
@@ -36,9 +35,31 @@ function addToSpectatorList(username) {
         username: username,
         role: role
     }
-    spectators.push(data)
+    spectators.push(data);
+    return spectators;
 }
 
+
+//================playerList.html================
+$(function() {
+    //check if document URL is playerList.html
+    if (document.URL == "http://localhost:3000/playerList.html" && localStorage.role != "") {
+        //check if user's role is a spectator then do some appropriate changes to playerList.html
+        if (localStorage.role == "spectator") {
+            //get header by className
+            let header = document.getElementsByClassName("players");
+            //change text of header to Spectators
+            header[0].textContent = "Spectators";
+            //change play button text to Watch
+            document.getElementById("play").textContent = "Watch";
+            //clear localStorage.role
+            localStorage.role = "";
+        }
+    }
+})
+
+
+//================GameHome.html================
 //remove player buttons
 function hideplayerbuttons(htmlElement){
     document.getElementById(htmlElement).style.display = "none";
