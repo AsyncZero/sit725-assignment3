@@ -13,7 +13,7 @@ const client = new MongoClient(uri, {
 // Insert Message into database
 let documentsCollection;
 const openConnectionPlayers = () => {
- Aamir-Preeti
+ 
   client.connect((err) => {
     documentsCollection = client.db("loveletter").collection("players");
 
