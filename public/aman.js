@@ -53,12 +53,12 @@ let cards = {
     7: {
         id: 7,
         name: 'Countess',
-        image: '../IMAGES/Countess.png'
+        image: '../IMAGES/countess.png'
     },
     8: {
         id: 8,
         name: 'Princess',
-        image: '../IMAGES/Princess.png'
+        image: '../IMAGES/princess.png'
     }
 };
 //player hands
