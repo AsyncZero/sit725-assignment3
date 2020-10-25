@@ -1,17 +1,40 @@
-let userID;
 let username;
+const role = "spectator";
 let spectators = [];
-let room = "spectators";
 
-function addSpectator(userID) {
-  spectators.push(userID);
+//AddSpectator() for Button in AddingPlayer.html
+function AddSpectator() {
+    //gettting the values
+    username = document.getElementById("PlayerName").value;
+    //entering name validation present or not
+    if (username == '') {
+        alert("Please add your name!");
+        document.getElementById('PlayerName').style.background = 'red';
+        document.getElementById("PlayerName").focus();
+    }
+    //check if only number enetered using regex
+    else if (username.match(/^\d+$/)) {
+        alert("Please add a valid name!");
+        document.getElementById("PlayerName").focus();
+    } else {
+        let data = {
+            username: username,
+            role: role
+        }
+        //set userdata to localStorage
+        localStorage.spectator = JSON.stringify(data);
+        //add user to list of spectators
+        addToSpectatorList(username)
+        //redirect to playerList.html
+        window.location.href = "./playerList.html";
+    }
 }
+
 //add to spectator list
-function addSpectator(userID, username) {
+function addToSpectatorList(username) {
     let data = {
-        userID: userID,
         username: username,
-        room: room
+        role: role
     }
     spectators.push(data)
 }
