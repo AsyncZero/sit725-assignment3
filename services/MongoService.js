@@ -32,7 +32,6 @@ const openConnectionPlayers = () => {
             console.log("Database Connected");
         }
     });
-};
 const insertPlayer = (players) => {
     documentsCollection.insertOne({
         players: players,

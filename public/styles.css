@@ -354,15 +354,14 @@
         letter-spacing: 0.04em;
         color: #000000;
     }
-Aamir-Preeti
 
- master
+
+ 
     .messageBox:hover {
         opacity: 0.6;
         filter: alpha(opacity=30);
         transform: scale(1.3);
- Aamir-Preeti
- Aamir-Preeti
+ 
     }
 
 
@@ -373,7 +372,7 @@ Aamir-Preeti
     height: 200px;
     left: 601px;
     top: -883px;
-    border:2px !solid #eee;
+    border:2px solid #eee;
     border-radius: 60px;
 }
 #deck-container>#deck{
@@ -418,10 +417,8 @@ p#firstPlayer {
     top: -18px;
 }
 
-    }
- master
+ 
 
-    }
     
     #leave {
         position: relative;
@@ -436,4 +433,4 @@ p#firstPlayer {
         text-decoration-line: underline;
         color: #2994F7;
     }
- master
+ 
