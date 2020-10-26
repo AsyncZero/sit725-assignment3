@@ -33,6 +33,7 @@ const addComputerPlayer = () => {
     playerCount++;
     $("#loginUser2").html(player2);
     $("#secondBlock").show();
+    $("#play").show();
   } else if (player3 == null) {
     player3 = "CPU Nicole";
     playerCount++;
@@ -68,6 +69,7 @@ const kickComputerPlayer2 = () => {
   playerCount--;
   $("#loginUser2").html(player2);
   $("#secondBlock").hide();
+  $("#play").hide();
   if (playerCount == 4) {
     $("#addCPUbtn").hide();
   } else {
@@ -145,6 +147,9 @@ $(document).ready(function () {
     }
     if (playerCount == 4) {
       $("#addCPUbtn").hide();
+    }
+    if (playerCount == 1) {
+      $("#play").hide();
     }
   });
 });
