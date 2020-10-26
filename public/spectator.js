@@ -1,7 +1,7 @@
-let userID;
 let username;
+let role = "spectator";
 let spectators = [];
-let room = "spectators";
+//let room = "spectators";
 
 //================AddingPlayer.html================
 $(function () {
