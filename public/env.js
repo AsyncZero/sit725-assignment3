@@ -5,24 +5,27 @@ let player3;
 let player4;
 let playerCount;
 
-//addingName method
-const AddName = () => {
-  let Name = $("#PlayerName").val();
-  localStorage.content = $("#PlayerName").val();
+//AddName() for Button
+function AddName() {
   //gettting the values
-  var name = document.getElementById("PlayerName").value;
+  username = document.getElementById("PlayerName").value;
   //entering name validation present or not
-  if (Name.length == "") {
+  if (username == "") {
     alert("Please add your name!");
-    if (confirm("Please add your name!") == true) {
-      document.getElementById("PlayerName").style.background = "red";
-      $("#PlayerName").focus();
-    } else {
-      userID = name;
-      window.location.href = "./playerList.html";
-    }
+    document.getElementById("PlayerName").style.background = "red";
+    document.getElementById("PlayerName").focus();
   }
-};
+  //check if only number enetered using regex
+  else if (username.match(/^\d+$/)) {
+    alert("Please add a valid name!");
+    document.getElementById("PlayerName").focus();
+  } else {
+    //pass username to localStorage.content
+    localStorage.content = username;
+    //redirect to playerList.html
+    window.location.href = "./playerList.html";
+  }
+}
 
 const addComputerPlayer = () => {
   if (player2 == null) {
@@ -71,7 +74,8 @@ $(document).ready(function () {
       playerCount
   );
   $.get(url, function (req, res) {
-    $("#loginUser").html(localStorage.content);
+    //$("#loginUser").html(localStorage.content);
+    $("#loginUser").html(player1);
     // $('#loginUser2').html(localStorage.content);
     // $('#loginUser3').html(localStorage.content);
     // $('#loginUser4').html(localStorage.content);
