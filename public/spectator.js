@@ -1,55 +1,15 @@
 let username;
-let role = "spectator";
+const role = "spectator";
 let spectators = [];
 //let room = "spectators";
 
-//================AddingPlayer.html================
 $(function () {
     //check if document URL is AddingPlayer.html
     if (document.URL == "http://localhost:3000/AddingPlayer.html") {
         //set default role as player
         localStorage.role = "player";
     }
-})
-//AddSpectator() for Button
-function AddSpectator() {
-    //gettting the values
-    username = document.getElementById("PlayerName").value;
-    //entering name validation present or not
-    if (username == '') {
-        alert("Please add your name!");
-        document.getElementById('PlayerName').style.background = 'red';
-        document.getElementById("PlayerName").focus();
-    }
-    //check if only number enetered using regex
-    else if (username.match(/^\d+$/)) {
-        alert("Please add a valid name!");
-        document.getElementById("PlayerName").focus();
-    } else {
-        //pass username to localStorage.content
-        localStorage.content = username;
-        //set userdata to localStorage
-        localStorage.role = role;
-        //add user to list of spectators
-        addToSpectatorList(username);
-        //redirect to playerList.html
-        window.location.href = "./playerList.html";
-    }
-}
 
-//add to spectator list
-function addToSpectatorList(username) {
-    let data = {
-        username: username,
-        role: role
-    }
-    spectators.push(data);
-    return spectators;
-}
-
-
-//================playerList.html================
-$(function() {
     //check if document URL is playerList.html
     if (document.URL == "http://localhost:3000/playerList.html" && localStorage.role != "") {
         //check if user's role is a spectator then do some appropriate changes to playerList.html
@@ -62,45 +22,121 @@ $(function() {
             document.getElementById("play").textContent = "Watch";
         }
     }
-})
 
-
-//================GameHome.html================
-$(function () {
     //check if document URL is GameHome.html
     if (document.URL == "http://localhost:3000/GameHome.html" && localStorage.role == "spectator") {
-        //get div cards by className
-        let cards = document.getElementsByClassName("card");
-        //make every div unclickable
-        for (let i = 0; i < cards.length; i++) {
-            $('.card').addClass("unclickable");
-        }
+        //make every div with card class unclickable for spectator
+        $('.card').addClass("unclickable");
+    } else {
+        $('.card').removeClass("unclickable");
     }
 })
-//remove player buttons
-function hideplayerbuttons(htmlElement){
-    document.getElementById(htmlElement).style.display = "none";
+
+//AddSpectatorButton()
+function AddSpectatorButton() {
+    //gettting the values
+    nameInput = document.getElementById("PlayerName").value;
+    if (validateSpectator(nameInput)) {
+        //pass username to localStorage.content
+        localStorage.content = username;
+        //set userdata to localStorage
+        localStorage.role = role;
+        //Create Spectator and Add to Spectator List
+        var spectator = addSpectator(nameInput);
+        addToSpectatorList(spectator);
+        //redirect to playerList.html
+        window.location.href = "./playerList.html";
+    } else {
+        alert("Please Enter A Valid Name")
+        document.getElementById('PlayerName').style.background = 'red';
+        document.getElementById("PlayerName").focus();
+    }
 }
+
+//add to spectator list
+function addToSpectatorList(spectator) {
+    //add to spectator an array of spectators
+    spectators.push(spectator);
+    return spectators;
+}
+
+function addSpectator(nameInput) {
+    if (validateSpectator(nameInput)) {
+            let spectator = {
+            username: nameInput,
+            role: role
+        }
+        return spectator;
+    } else {
+        return "You have enterd an invalid name";
+    }
+}
+
+function validateSpectator(nameInput) {
+    const errorMessage = "Please enter a valid name!";
+    if (isNotEmpty(nameInput) && isNotANumber(nameInput) && isNotNull(nameInput)) {
+        username = nameInput;
+        return username;
+    }
+    else {
+        return false;
+    }
+}
+
+//check if username is not Empty
+function isNotEmpty(nameInput) {
+    if (nameInput != '') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//check if username is not a number
+function isNotANumber(nameInput) {
+    if (isNotNull(nameInput)) {
+        if (!nameInput.match(/^\d+$/)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false
+    }
+    
+}
+
+//check if not null
+function isNotNull(nameInput) {
+    if (nameInput != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+module.exports = {
+    addSpectator,
+    addToSpectatorList,
+    validateSpectator
+}
+
+//remove player buttons
+// function hideplayerbuttons(htmlElement){
+//     document.getElementById(htmlElement).style.display = "none";
+// }
 
 //hide spectator chats from players
-function sendMSG(message, userID) {
-    let spectator;
-    spectators.forEach(function(s) {
-        if(spectators.userID == userID){
-            spectator = s;
-        }
-    })
-    let data ={
-        spectator: spectator,
-        message: message
-    }
-    return data;
-}
-    
-//set card view of spectators
-
-//greet spectator after successfully joining
-
-//spectator left log
-
-//let spectator know if game has updated
+// function sendMSG(message, userID) {
+//     let spectator;
+//     spectators.forEach(function(s) {
+//         if(spectators.userID == userID){
+//             spectator = s;
+//         }
+//     })
+//     let data ={
+//         spectator: spectator,
+//         message: message
+//     }
+//     return data;
+// }

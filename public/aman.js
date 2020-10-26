@@ -261,3 +261,11 @@ function CardActions(card_id) {
 
 
 }
+
+//exports for testing
+module.exports = {
+    buildDeck,
+    RandomizeDeck,
+    randomCard,
+    CardActions
+}
