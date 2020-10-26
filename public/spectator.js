@@ -1,5 +1,5 @@
 let username;
-let role = "spectator";
+const role = "spectator";
 let spectators = [];
 //let room = "spectators";
 
@@ -32,71 +32,111 @@ $(function () {
     }
 })
 
-//AddSpectator() for Button
-function AddSpectator() {
+//AddSpectatorButton()
+function AddSpectatorButton() {
     //gettting the values
-    username = document.getElementById("PlayerName").value;
-    //entering name validation present or not
-    if (username == '') {
-        let err = "Please add your name!"
-        alert(err);
-        document.getElementById('PlayerName').style.background = 'red';
-        document.getElementById("PlayerName").focus();
-        return err;
-    }
-    //check if only number enetered using regex
-    else if (username.match(/^\d+$/)) {
-        let err = "Please add a valid name!"
-        alert(err);
-        document.getElementById('PlayerName').style.background = 'red';
-        document.getElementById("PlayerName").focus();
-        return err;
-    } else {
+    nameInput = document.getElementById("PlayerName").value;
+    if (validateSpectator(nameInput)) {
         //pass username to localStorage.content
         localStorage.content = username;
         //set userdata to localStorage
         localStorage.role = role;
-        //add user to list of spectators
-        addToSpectatorList(username);
+        //Create Spectator and Add to Spectator List
+        var spectator = addSpectator(nameInput);
+        addToSpectatorList(spectator);
         //redirect to playerList.html
         window.location.href = "./playerList.html";
+    } else {
+        alert("Please Enter A Valid Name")
+        document.getElementById('PlayerName').style.background = 'red';
+        document.getElementById("PlayerName").focus();
     }
 }
 
 //add to spectator list
-function addToSpectatorList(username) {
-    let data = {
-        username: username,
-        role: role
-    }
-    spectators.push(data);
+function addToSpectatorList(spectator) {
+    //add to spectator an array of spectators
+    spectators.push(spectator);
     return spectators;
 }
 
-//remove player buttons
-function hideplayerbuttons(htmlElement){
-    document.getElementById(htmlElement).style.display = "none";
+function addSpectator(nameInput) {
+    if (validateSpectator(nameInput)) {
+            let spectator = {
+            username: nameInput,
+            role: role
+        }
+        return spectator;
+    } else {
+        return "You have enterd an invalid name";
+    }
 }
+
+function validateSpectator(nameInput) {
+    const errorMessage = "Please enter a valid name!";
+    if (isNotEmpty(nameInput) && isNotANumber(nameInput) && isNotNull(nameInput)) {
+        username = nameInput;
+        return username;
+    }
+    else {
+        return false;
+    }
+}
+
+//check if username is not Empty
+function isNotEmpty(nameInput) {
+    if (nameInput != '') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//check if username is not a number
+function isNotANumber(nameInput) {
+    if (isNotNull(nameInput)) {
+        if (!nameInput.match(/^\d+$/)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false
+    }
+    
+}
+
+//check if not null
+function isNotNull(nameInput) {
+    if (nameInput != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+module.exports = {
+    addSpectator,
+    addToSpectatorList,
+    validateSpectator
+}
+
+//remove player buttons
+// function hideplayerbuttons(htmlElement){
+//     document.getElementById(htmlElement).style.display = "none";
+// }
 
 //hide spectator chats from players
-function sendMSG(message, userID) {
-    let spectator;
-    spectators.forEach(function(s) {
-        if(spectators.userID == userID){
-            spectator = s;
-        }
-    })
-    let data ={
-        spectator: spectator,
-        message: message
-    }
-    return data;
-}
-
-//set card view of spectators
-
-//greet spectator after successfully joining
-
-//spectator left log
-
-//let spectator know if game has updated
+// function sendMSG(message, userID) {
+//     let spectator;
+//     spectators.forEach(function(s) {
+//         if(spectators.userID == userID){
+//             spectator = s;
+//         }
+//     })
+//     let data ={
+//         spectator: spectator,
+//         message: message
+//     }
+//     return data;
+// }

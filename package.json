@@ -22,7 +22,10 @@
     "materialize-css": "^1.0.0-rc.2",
     "mongodb": "^3.6.2",
     "mocha": "*",
-    "chai": "*"
+    "chai": "*",
+    "request": "*",
+    "jquery": "*",
+    "jsdom": "*"
   },
   "devDependencies": {}
 }
