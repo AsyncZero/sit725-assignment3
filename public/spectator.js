@@ -1,6 +1,7 @@
+let userID;
 let username;
-const role = "spectator";
 let spectators = [];
+let room = "spectators";
 
 //================AddingPlayer.html================
 $(function () {
