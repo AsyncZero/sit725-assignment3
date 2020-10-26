@@ -1,61 +1,93 @@
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>PlayerList</title>
-    <link rel="icon" href="./IMAGES/cardBack.png">
-    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="./IMAGES/cardBack.png" />
+    <link href="styles.css" rel="stylesheet" />
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <!-- popup messages - alert -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <script src="env.js"></script>
-    <div id="HomePage">
-    </div>
+    <script src="spectator.js"></script>
+    <div id="HomePage"></div>
     <div id="bodyGame">
-        <div class="GameIntro">
-            <h2 class="players">Players</h2>
-            <table id="playerList" class="striped">
-                <tbody>
-                    <tr id="firstBlock">
-                        <td>1.</td>
-                        <td>
-                            <span id="loginUser" class="brand-logo" style="height: 100%;"></span>
-                        </td>
-                        <td>
-                            <a href="#" onclick="leave()">Leave</a>
-                        </td>
-                    </tr>
-                    <tr id="secondBlock">
-                        <td>2.</td>
-                        <td><span id="loginUser2" class="brand-logo" style="height: 100%;"></span></td>
-                        <td>
-                            <a href="#" onclick="leave()">Leave</a>
-                        </td>
-                    </tr>
-                    <tr id="thirdBlock">
-                        <td>3.</td>
-                        <td><span id="loginUser3" class="brand-logo" style="height: 100%;"></span></td>
-                        <td>
-                            <a href="#" onclick="leave()">Leave</a>
-                        </td>
-                    </tr>
-                    <tr id="fourthBlock">
-                        <td>4.</td>
-                        <td><span id="loginUser4" class="brand-logo" style="height: 100%;"></span></td>
-                        <td>
-                            <a href="#" onclick="leave()">Leave</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <div class="GameIntro">
+        <h2 class="players">Players</h2>
+        <a
+          class="waves-effect waves-light btn"
+          id="addCPUbtn"
+          onclick="addComputerPlayer()"
+          >Add CPU</a
+        >
+        <table id="playerList" class="striped">
+          <tbody>
+            <tr id="firstBlock">
+              <td>1.</td>
+              <td>
+                <span
+                  id="loginUser"
+                  class="brand-logo"
+                  style="height: 100%"
+                ></span>
+              </td>
+              <td>
+                <a href="#" onclick="leave()">Leave</a>
+              </td>
+            </tr>
+            <tr id="secondBlock">
+              <td>2.</td>
+              <td>
+                <span
+                  id="loginUser2"
+                  class="brand-logo"
+                  style="height: 100%"
+                ></span>
+              </td>
+              <td>
+                <a href="#" id="kick2" onclick="kickComputerPlayer2()">Kick</a>
+              </td>
+            </tr>
+            <tr id="thirdBlock">
+              <td>3.</td>
+              <td>
+                <span
+                  id="loginUser3"
+                  class="brand-logo"
+                  style="height: 100%"
+                ></span>
+              </td>
+              <td>
+                <a href="#" id="kick3" onclick="kickComputerPlayer3()">Kick</a>
+              </td>
+            </tr>
+            <tr id="fourthBlock">
+              <td>4.</td>
+              <td>
+                <span
+                  id="loginUser4"
+                  class="brand-logo"
+                  style="height: 100%"
+                ></span>
+              </td>
+              <td>
+                <a href="#" id="kick4" onclick="kickComputerPlayer4()">Kick</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <button id="play" onclick="Play()">Play</button>
-</body>
-
+  </body>
 </html>
