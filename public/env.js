@@ -31,12 +31,20 @@ const addComputerPlayer = () => {
   if (player2 == null) {
     player2 = "CPU John";
     playerCount++;
+    $("#loginUser2").html(player2);
+    $("#secondBlock").show();
   } else if (player3 == null) {
     player3 = "CPU Nicole";
     playerCount++;
+    $("#loginUser3").html(player3);
+    $("#kick2").hide();
+    $("#thirdBlock").show();
   } else {
     player4 = "CPU Jessica";
     playerCount++;
+    $("#loginUser4").html(player4);
+    $("#kick3").hide();
+    $("#fourthBlock").show();
   }
   if (playerCount == 4) {
     $("#addCPUbtn").hide();
@@ -53,6 +61,47 @@ const addComputerPlayer = () => {
       " Player Count: " +
       playerCount
   );
+};
+
+const kickComputerPlayer2 = () => {
+  player2 = null;
+  playerCount--;
+  $("#loginUser2").html(player2);
+  $("#secondBlock").hide();
+  if (playerCount == 4) {
+    $("#addCPUbtn").hide();
+  } else {
+    $("#addCPUbtn").show();
+  }
+  console.log(" Player Count: " + playerCount);
+};
+
+const kickComputerPlayer3 = () => {
+  player3 = null;
+  playerCount--;
+  $("#loginUser3").html(player3);
+  $("#thirdBlock").hide();
+  $("#kick2").show();
+  if (playerCount == 4) {
+    $("#addCPUbtn").hide();
+  } else {
+    $("#addCPUbtn").show();
+  }
+  console.log(" Player Count: " + playerCount);
+};
+
+const kickComputerPlayer4 = () => {
+  player4 = null;
+  playerCount--;
+  $("#loginUser4").html(player4);
+  $("#fourthBlock").hide();
+  $("#kick3").show();
+  if (playerCount == 4) {
+    $("#addCPUbtn").hide();
+  } else {
+    $("#addCPUbtn").show();
+  }
+  console.log(" Player Count: " + playerCount);
 };
 
 $(document).ready(function () {
