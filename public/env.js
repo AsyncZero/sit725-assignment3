@@ -59,7 +59,7 @@ $(document).ready(function () {
   );
   player1 = localStorage.content;
   console.log(
-    "PLayer 1: " +
+    "Player 1: " +
       player1 +
       " Player 2: " +
       player2 +
