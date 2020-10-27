@@ -24,7 +24,7 @@ $(document).ready(function () {
   }
   if (playerCount == 4) {
     $("#thirdPlayer").html(playerArray[2]);
-    $("#fouthPlayer").html(playerArray[3]);
+    $("#fourthPlayer").html(playerArray[3]);
     $(".Box3").show();
     $(".Box4").show();
     playerHands3 = [randomCard()];
