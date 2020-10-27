@@ -1,13 +1,14 @@
 let playerArray;
 let playerCount;
+let activePlayer = 1;
 
 $(document).ready(function () {
   deck = RandomizeDeck(buildDeck());
-  let playerCount = sessionStorage.getItem("playerCount");
+  //let playerCount = sessionStorage.getItem("playerCount");
+  let playerCount = getPlayerCount();
   let playerArray = JSON.parse(sessionStorage.getItem("playerarray"));
   console.log(playerCount);
   console.log(playerArray);
-  let activePlayer;
   $("#firstPlayer").html(playerArray[0]);
   $("#secondPlayer").html(playerArray[1]);
   $(".Box1").show();
@@ -31,7 +32,7 @@ $(document).ready(function () {
   }
   //enemyhands = [randomCard()];
   //giving cards to player
-  distributecards();
+  distributecards(playerCount);
   console.log(playerHands);
   console.log(playerHands2);
   console.log(playerHands3);
@@ -193,13 +194,14 @@ function playcard(Userplayed) {
   }
 }
 //function to distribute cards to players
-function distributecards() {
+function distributecards(numofPlayers) {
+  console.log(numofPlayers);
   addCard(".Box1 #box1 #first .hand", playerHands[0]);
   addCard(".Box2 #box2 #second .hand", playerHands2[0]);
-  if (playerCount == 3) {
+  if (numofPlayers == 3) {
     addCard(".Box3 #box3 #third .hand", playerHands3[0]);
   }
-  if (playerCount == 4) {
+  if (numofPlayers == 4) {
     addCard(".Box3 #box3 #third .hand", playerHands3[0]);
     addCard(".Box4 #box4 #fourth .hand", playerHands4[0]);
   }
@@ -228,6 +230,7 @@ function updatedeck() {
     })
     .html('<h1 style="color:white;">' + deck.length + " Cards Left</h1>");
 }
+
 //function to update hands of player
 function updatehands() {
   playerHands[1] = randomCard();
@@ -245,6 +248,8 @@ function updateDisplayText(text1) {
 }
 // Card Actions
 function CardActions(card_id) {
+  let playerCount = getPlayerCount();
+  console.log(playerCount);
   displayText();
   //var enemycardif = enemyCard.id;
   var winstate = false;
@@ -256,7 +261,9 @@ function CardActions(card_id) {
         "Enter Your target Card:\n1.Guard.\n2.Priest.\n3.Baron.\n4.Handmaid.\n5.Prince.\n6.King.\n7.Countess.\n8.Princess."
       );
       player_target = prompt("Enter Your target player:1,2,3,4");
-      if (Number(guess_target) === enemycardif) {
+      if (Number(player_target > playerCount)) {
+        updateDisplayText("Pick a valid player number");
+      } else if (Number(guess_target) === enemycardif) {
         winstate = true;
       } else {
         updateDisplayText("Your target does not succeed.");
@@ -335,9 +342,19 @@ function CardActions(card_id) {
   return winstate;
 }
 
+let turnOrder = () => {
+  if (activePlayer == 1) {
+  }
+};
+
 const leave = () => {
   localStorage.clear();
   window.location.href = "./HomePage.html";
+};
+
+const getPlayerCount = () => {
+  let playerCount = sessionStorage.getItem("playerCount");
+  return playerCount;
 };
 
 //exports for testing
