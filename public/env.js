@@ -4,6 +4,7 @@ let player2;
 let player3;
 let player4;
 let playerCount;
+let playerarray = ["", "", "", ""];
 
 //AddName() for Button
 function AddName() {
@@ -159,18 +160,15 @@ let NameList = null;
 const Play = () => {
   firstName = $("#loginUser").text();
   if (firstName != "") {
+    let playerarray = [player1, player2, player3, player4];
+    sessionStorage.setItem("playerCount", playerCount);
+    sessionStorage.setItem("playerarray", JSON.stringify(playerarray));
     window.location.href = "./GameHome.html";
   } else {
     window.location.href = "./AddingPlayer.html";
   }
 };
-$(document).ready(function () {
-  $("#firstPlayer").html(localStorage.content);
-  $(".Box1").show();
-  $(".Box2").show();
-  $(".Box3").show();
-  $(".Box4").show();
-});
+
 const leave = () => {
   localStorage.clear();
   window.location.href = "./HomePage.html";

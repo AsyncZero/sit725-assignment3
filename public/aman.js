@@ -1,18 +1,53 @@
+let playerArray;
+let playerCount;
+let activePlayer = 1;
+
 $(document).ready(function () {
   deck = RandomizeDeck(buildDeck());
-  playerHands = [randomCard(), randomCard()];
-  enemyhands = [randomCard()];
+  //let playerCount = sessionStorage.getItem("playerCount");
+  let playerCount = getPlayerCount();
+  let playerArray = JSON.parse(sessionStorage.getItem("playerarray"));
+  console.log(playerCount);
+  console.log(playerArray);
+  $("#firstPlayer").html(playerArray[0]);
+  $("#secondPlayer").html(playerArray[1]);
+  $(".Box1").show();
+  $(".Box2").show();
+  $(".Box3").hide();
+  $(".Box4").hide();
+  playerHands = [randomCard()];
+  playerHands2 = [randomCard()];
+  if (playerCount == 3) {
+    $("#thirdPlayer").html(playerArray[2]);
+    $(".Box3").show();
+    playerHands3 = [randomCard()];
+  }
+  if (playerCount == 4) {
+    $("#thirdPlayer").html(playerArray[2]);
+    $("#fourthPlayer").html(playerArray[3]);
+    $(".Box3").show();
+    $(".Box4").show();
+    playerHands3 = [randomCard()];
+    playerHands4 = [randomCard()];
+  }
+  //enemyhands = [randomCard()];
   //giving cards to player
-  distributecards();
+  distributecards(playerCount);
+  console.log(playerHands);
+  console.log(playerHands2);
+  console.log(playerHands3);
+  console.log(playerHands4);
   //discarding cards
   discardedcards();
   ////////////////////////////////////////////////////////////////
   //this section is for demo purpose pleease delete this section//
+  /*
   enemyCard = enemyhands[0];
   console.log(
     "This Enemy is created for testing purposes all the opponents players will be created after room joining. "
   );
   console.log("Enemy has " + enemyCard.name + " Card");
+  */
   ////////////////////////////////////////////////////////////////
   updatedeck();
 });
@@ -62,6 +97,9 @@ let cards = {
 };
 //player hands
 let playerHands = [];
+let playerHands2 = [];
+let playerHands3 = [];
+let playerHands4 = [];
 //player protection after using handmaid card
 let playerprotection = false;
 //building cardsdeck
@@ -156,10 +194,21 @@ function playcard(Userplayed) {
   }
 }
 //function to distribute cards to players
-function distributecards() {
-  addCard(".Box1 #box1 #you .hand", playerHands[0]);
-  addCard(".Box1 #box1 #you .hand", playerHands[1]);
-  addCard(".Box2 .enemy #box2 #you .hand", enemyhands[0]);
+function distributecards(numofPlayers) {
+  console.log(numofPlayers);
+  addCard(".Box1 #box1 #first .hand", playerHands[0]);
+  addCard(".Box2 #box2 #second .hand", playerHands2[0]);
+  if (numofPlayers == 3) {
+    addCard(".Box3 #box3 #third .hand", playerHands3[0]);
+  }
+  if (numofPlayers == 4) {
+    addCard(".Box3 #box3 #third .hand", playerHands3[0]);
+    addCard(".Box4 #box4 #fourth .hand", playerHands4[0]);
+  }
+  console.log(playerHands);
+  console.log(playerHands2);
+  console.log(playerHands3);
+  console.log(playerHands4);
 }
 //function to add discarded cards
 function discardedcards() {
@@ -181,10 +230,11 @@ function updatedeck() {
     })
     .html('<h1 style="color:white;">' + deck.length + " Cards Left</h1>");
 }
+
 //function to update hands of player
 function updatehands() {
   playerHands[1] = randomCard();
-  addCard(".Box1 #box1 #you .hand", playerHands[1]);
+  addCard(".Box1 #box1 #first .hand", playerHands[1]);
 }
 
 //gameHome Text box
@@ -198,8 +248,10 @@ function updateDisplayText(text1) {
 }
 // Card Actions
 function CardActions(card_id) {
+  let playerCount = getPlayerCount();
+  console.log(playerCount);
   displayText();
-  var enemycardif = enemyCard.id;
+  //var enemycardif = enemyCard.id;
   var winstate = false;
   switch (card_id) {
     case "1":
@@ -208,7 +260,10 @@ function CardActions(card_id) {
       guess_target = prompt(
         "Enter Your target Card:\n1.Guard.\n2.Priest.\n3.Baron.\n4.Handmaid.\n5.Prince.\n6.King.\n7.Countess.\n8.Princess."
       );
-      if (Number(guess_target) === enemycardif) {
+      player_target = prompt("Enter Your target player:1,2,3,4");
+      if (Number(player_target > playerCount)) {
+        updateDisplayText("Pick a valid player number");
+      } else if (Number(guess_target) === enemycardif) {
         winstate = true;
       } else {
         updateDisplayText("Your target does not succeed.");
@@ -286,6 +341,21 @@ function CardActions(card_id) {
   displayText();
   return winstate;
 }
+
+let turnOrder = () => {
+  if (activePlayer == 1) {
+  }
+};
+
+const leave = () => {
+  localStorage.clear();
+  window.location.href = "./HomePage.html";
+};
+
+const getPlayerCount = () => {
+  let playerCount = sessionStorage.getItem("playerCount");
+  return playerCount;
+};
 
 //exports for testing
 module.exports = {

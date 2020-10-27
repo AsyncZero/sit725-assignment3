@@ -22,7 +22,6 @@
 </head>
 
 <body>
-    <script src="env.js"></script>
     <div id="HomePage">
 
     </div>
@@ -32,58 +31,52 @@
 
         <div class="Box1">
             <div id="box1">
-
-                <p id="firstPlayer"> You:</p>
-                <div id="you" class="player-container player-card2">
+                <p id="firstPlayer"></p>
+                <div id="first" class="player-container player-card2">
                     <div class="hand"></div>
                 </div>
-
-                <p id="firstPlayer"> </p>
-
-
-                <p id="firstPlayer"></p>
-
+                <p></p>
             </div>
         </div>
         <div class="messageBox">
             <p id="abc"></p>
         </div>
         <div class="Box2">
-            <div class="enemy">
-                <div id="box2">
-
-                    <p id="firstPlayer">Demo Enemy:</p>
-                    <div id="you" class="player-container player-card2">
-                        <div class="hand"></div>
+            <div id="box2">
+                <p id="secondPlayer"></p>
+                <div id="second" class="player-container player-card2">
+                    <div class="hand"></div>
                     </div>
                 </div>
-
                 <p></p>
-
-
             </div>
         </div>
         <div class="Box3">
             <div id="box3">
+                <p id="thirdPlayer"></p>
+                <div id="third" class="player-container player-card2">
+                    <div class="hand"></div>
+                </div>
                 <p></p>
             </div>
         </div>
         <div class="Box4">
             <div id="box4">
-                <p>
-                </p>
-
+                <p id="fourthPlayer"></p>
+                <div id="fourth" class="player-container player-card2">
+                    <div class="hand"></div>
+                </div>
+                <p></p>
             </div>
         </div>
         <div class="carddeck">
             <div id="deck-container">
                 <div id="deck" class="card card-back">
                 </div>
-
             </div>
         </div>
         <button id="rulesBox" class="w3-button w3-green w3-large" data-toggle="modal" data-target="#myModal" style="color: #171716;">Rules</button>
-        <button id="rulesBox"><a href="#" onclick="leave()" style="text-decoration-line: underline;color:  #2994F6;">Leave</a></button>
+        <button id="leaveButton"><a href="#" onclick="leave()" style="text-decoration-line: underline;color:  #2994F6;">Leave</a></button>
         <div class="modal" id="myModal" role="dialog">
             <!-- Modal content-->
             <div class="modal-content" id="myModal">
@@ -108,8 +101,6 @@
 <script src="aman.js"></script>
 
 </html>
-
-<script src="aman.js"></script>
 <script src="spectator.js"></script>
 <script>
     const startingMinutes = 2;
